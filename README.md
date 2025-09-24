@@ -1,20 +1,12 @@
 # TVLang
 
-A structured, TV-inspired programming language with simple instructions for **canal**, **volume**, **entrada**, **energia**, and **sleep timer**, designed to demonstrate compiler construction and computational models in an intuitive way.  
+
 
 ---
 
-## 🎯 Overview
 
-**TVLang** é uma linguagem educacional projetada para mostrar como construir linguagens e compiladores simples, tomando como metáfora o uso de uma televisão.  
-Com apenas alguns registradores e instruções básicas, é possível expressar:  
 
-- **Educação em Ciência da Computação**: aprendendo sobre linguagens e máquinas virtuais  
-- **Desenvolvimento de Compiladores**: traduzindo alto nível para assembly da TVVM  
-- **Exploração de Algoritmos**: controle de loops e condicionais  
-- **Pesquisa Teórica**: modelando máquinas de estado e completude computacional  
 
----
 
 ## 🏗️ Arquitetura
 
@@ -85,3 +77,85 @@ Hora           = Numero "h" ;
 
 Nome           = Letter { Letter | Digit | "_" } ;
 Letter         = "A" | "B" | ... | "Z" | "a" | ... | "z" ;
+```
+
+---
+
+## 📝 Instruction Set (TVLang)
+
+| Instrução        | Exemplo                 | Descrição                           |
+|------------------|-------------------------|-------------------------------------|
+| **ligar**        | `ligar;`               | Liga a TV                           |
+| **desligar**     | `desligar;`            | Desliga a TV e encerra execução     |
+| **setar**        | `setar canal 12;`      | Define valor de registrador         |
+| **aumentar**     | `aumentar volume;`     | Incrementa valor de registrador     |
+| **diminuir**     | `diminuir volume;`     | Decrementa valor de registrador     |
+| **sleep**        | `sleep(3){...}`        | Executa bloco até sleep zerar       |
+| **se**           | `se (horario == 23h)`  | Executa instrução condicional       |
+| **modo**         | `modo noturno {...}`   | Define um programa reutilizável     |
+
+---
+
+## 🚀 Quick Start
+
+### Exemplo 1 — Código direto
+```bash
+ligar;
+setar canal 12;
+aumentar volume;
+desligar;
+```
+
+---
+
+### Exemplo 2 — Definição de modo noturno
+```bash
+modo noturno {
+    ligar;
+    setar canal 45;
+    setar volume 5;
+    se (horario == 23h): desligar;
+}
+```
+
+---
+
+### Exemplo 3 — Sleep timer (loop por tempo)
+```bash
+modo maratona {
+    ligar;
+    sleep(5) {
+        aumentar volume;
+        aumentar canal;
+    }
+    desligar;
+}
+```
+
+---
+
+### Exemplo 4 — Mistura de instruções soltas e modos
+```bash
+ligar;
+setar canal 10;
+desligar;
+
+modo infantil {
+    ligar;
+    setar canal 34;
+    setar volume 8;
+}
+```
+
+---
+
+## 📚 Teoria
+
+TVLang é **Turing-complete**, pois:  
+- possui registradores de tamanho arbitrário  
+- permite loops (`sleep`, `se`) e saltos condicionais  
+- suporta definição de blocos reutilizáveis (modos)  
+
+---
+
+ 
