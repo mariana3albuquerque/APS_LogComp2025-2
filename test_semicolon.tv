@@ -1,0 +1,8 @@
+modo teste {
+    ligar;
+    setar canal 5;
+    sleep(2) {
+        aumentar volume;
+    };
+    se (horario == 22h): desligar;
+}

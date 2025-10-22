@@ -1,0 +1,11 @@
+ligar;
+setar canal 12;
+aumentar volume;
+desligar;
+
+modo noturno {
+    ligar;
+    setar canal 45;
+    setar volume 5;
+    se (horario == 23h): desligar;
+}
