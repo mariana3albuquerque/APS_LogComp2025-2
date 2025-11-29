@@ -136,40 +136,42 @@ enum yysymbol_kind_t
   YYSYMBOL_SE = 9,                         /* SE  */
   YYSYMBOL_MODO = 10,                      /* MODO  */
   YYSYMBOL_HORARIO = 11,                   /* HORARIO  */
-  YYSYMBOL_NAME = 12,                      /* NAME  */
-  YYSYMBOL_IDENT = 13,                     /* IDENT  */
-  YYSYMBOL_FONTE = 14,                     /* FONTE  */
-  YYSYMBOL_NUMERO = 15,                    /* NUMERO  */
-  YYSYMBOL_HORA = 16,                      /* HORA  */
-  YYSYMBOL_EQ = 17,                        /* EQ  */
-  YYSYMBOL_NE = 18,                        /* NE  */
-  YYSYMBOL_LE = 19,                        /* LE  */
-  YYSYMBOL_GE = 20,                        /* GE  */
-  YYSYMBOL_21_ = 21,                       /* '{'  */
-  YYSYMBOL_22_ = 22,                       /* '}'  */
-  YYSYMBOL_23_ = 23,                       /* ';'  */
-  YYSYMBOL_24_ = 24,                       /* '('  */
-  YYSYMBOL_25_ = 25,                       /* ')'  */
-  YYSYMBOL_26_ = 26,                       /* ':'  */
-  YYSYMBOL_27_ = 27,                       /* '<'  */
-  YYSYMBOL_28_ = 28,                       /* '>'  */
-  YYSYMBOL_YYACCEPT = 29,                  /* $accept  */
-  YYSYMBOL_program = 30,                   /* program  */
-  YYSYMBOL_items = 31,                     /* items  */
-  YYSYMBOL_item = 32,                      /* item  */
-  YYSYMBOL_modo_def = 33,                  /* modo_def  */
-  YYSYMBOL_bloco = 34,                     /* bloco  */
-  YYSYMBOL_instrs = 35,                    /* instrs  */
-  YYSYMBOL_action = 36,                    /* action  */
-  YYSYMBOL_instr = 37,                     /* instr  */
-  YYSYMBOL_ligar_stmt = 38,                /* ligar_stmt  */
-  YYSYMBOL_desligar_stmt = 39,             /* desligar_stmt  */
-  YYSYMBOL_setar_stmt = 40,                /* setar_stmt  */
-  YYSYMBOL_incdec = 41,                    /* incdec  */
-  YYSYMBOL_valor = 42,                     /* valor  */
-  YYSYMBOL_sleepbloco = 43,                /* sleepbloco  */
-  YYSYMBOL_condicao = 44,                  /* condicao  */
-  YYSYMBOL_expressao = 45                  /* expressao  */
+  YYSYMBOL_EXECUTAR = 12,                  /* EXECUTAR  */
+  YYSYMBOL_NAME = 13,                      /* NAME  */
+  YYSYMBOL_IDENT = 14,                     /* IDENT  */
+  YYSYMBOL_FONTE = 15,                     /* FONTE  */
+  YYSYMBOL_NUMERO = 16,                    /* NUMERO  */
+  YYSYMBOL_HORA = 17,                      /* HORA  */
+  YYSYMBOL_EQ = 18,                        /* EQ  */
+  YYSYMBOL_NE = 19,                        /* NE  */
+  YYSYMBOL_LE = 20,                        /* LE  */
+  YYSYMBOL_GE = 21,                        /* GE  */
+  YYSYMBOL_22_ = 22,                       /* '{'  */
+  YYSYMBOL_23_ = 23,                       /* '}'  */
+  YYSYMBOL_24_ = 24,                       /* ';'  */
+  YYSYMBOL_25_ = 25,                       /* '('  */
+  YYSYMBOL_26_ = 26,                       /* ')'  */
+  YYSYMBOL_27_ = 27,                       /* ':'  */
+  YYSYMBOL_28_ = 28,                       /* '<'  */
+  YYSYMBOL_29_ = 29,                       /* '>'  */
+  YYSYMBOL_YYACCEPT = 30,                  /* $accept  */
+  YYSYMBOL_program = 31,                   /* program  */
+  YYSYMBOL_items = 32,                     /* items  */
+  YYSYMBOL_item = 33,                      /* item  */
+  YYSYMBOL_modo_def = 34,                  /* modo_def  */
+  YYSYMBOL_bloco = 35,                     /* bloco  */
+  YYSYMBOL_instrs = 36,                    /* instrs  */
+  YYSYMBOL_action = 37,                    /* action  */
+  YYSYMBOL_instr = 38,                     /* instr  */
+  YYSYMBOL_ligar_stmt = 39,                /* ligar_stmt  */
+  YYSYMBOL_desligar_stmt = 40,             /* desligar_stmt  */
+  YYSYMBOL_setar_stmt = 41,                /* setar_stmt  */
+  YYSYMBOL_incdec = 42,                    /* incdec  */
+  YYSYMBOL_valor = 43,                     /* valor  */
+  YYSYMBOL_sleepbloco = 44,                /* sleepbloco  */
+  YYSYMBOL_condicao = 45,                  /* condicao  */
+  YYSYMBOL_chamadamodo = 46,               /* chamadamodo  */
+  YYSYMBOL_expressao = 47                  /* expressao  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -497,19 +499,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  3
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   56
+#define YYLAST   60
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  29
+#define YYNTOKENS  30
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  17
+#define YYNNTS  18
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  32
+#define YYNRULES  34
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  59
+#define YYNSTATES  61
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   275
+#define YYMAXUTOK   276
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -527,15 +529,15 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      24,    25,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,    26,    23,
-      27,     2,    28,     2,     2,     2,     2,     2,     2,     2,
+      25,    26,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,    27,    24,
+      28,     2,    29,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    21,     2,    22,     2,     2,     2,     2,
+       2,     2,     2,    22,     2,    23,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -550,17 +552,17 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20
+      15,    16,    17,    18,    19,    20,    21
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_uint8 yyrline[] =
+static const yytype_int16 yyrline[] =
 {
        0,    48,    48,    56,    57,    73,    74,    78,    92,   103,
-     104,   123,   124,   125,   126,   135,   141,   147,   152,   156,
-     160,   174,   175,   179,   180,   185,   199,   215,   221,   227,
-     233,   239,   245
+     104,   123,   124,   125,   126,   127,   141,   147,   148,   154,
+     158,   162,   176,   182,   191,   197,   206,   220,   237,   246,
+     252,   258,   264,   270,   276
 };
 #endif
 
@@ -578,11 +580,11 @@ static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "LIGAR", "DESLIGAR",
   "SETAR", "AUMENTAR", "DIMINUIR", "SLEEP_KW", "SE", "MODO", "HORARIO",
-  "NAME", "IDENT", "FONTE", "NUMERO", "HORA", "EQ", "NE", "LE", "GE",
-  "'{'", "'}'", "';'", "'('", "')'", "':'", "'<'", "'>'", "$accept",
+  "EXECUTAR", "NAME", "IDENT", "FONTE", "NUMERO", "HORA", "EQ", "NE", "LE",
+  "GE", "'{'", "'}'", "';'", "'('", "')'", "':'", "'<'", "'>'", "$accept",
   "program", "items", "item", "modo_def", "bloco", "instrs", "action",
   "instr", "ligar_stmt", "desligar_stmt", "setar_stmt", "incdec", "valor",
-  "sleepbloco", "condicao", "expressao", YY_NULLPTR
+  "sleepbloco", "condicao", "chamadamodo", "expressao", YY_NULLPTR
 };
 
 static const char *
@@ -592,7 +594,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-14)
+#define YYPACT_NINF (-9)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -606,12 +608,13 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-     -14,    16,    17,   -14,   -14,   -14,    18,    19,    20,     6,
-      10,    23,   -14,   -14,    13,   -14,   -14,   -14,   -14,   -14,
-      15,   -14,    14,   -14,   -14,    22,    28,    21,   -14,   -14,
-     -14,   -14,   -14,    24,   -10,    25,   -14,   -14,    21,    27,
-      29,    30,    31,    32,    35,    26,    -3,   -14,   -14,   -14,
-     -14,   -14,   -14,   -14,     8,   -14,   -14,    33,   -14
+      -9,    10,    20,    -9,    -9,    -9,     1,     2,     3,    -6,
+       6,     5,    25,    -9,    -9,    15,    -9,    -9,    -9,    -9,
+      -9,    -9,    -9,    -9,    -8,    -9,    -9,    24,    32,    19,
+      -9,    -9,    -9,    -9,    -9,    18,    -7,    21,    -9,    -9,
+      19,    28,    29,    31,    33,    34,    35,    22,    -3,    -9,
+      -9,    -9,    -9,    -9,    -9,    -9,    30,    -9,    -9,    36,
+      -9
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -619,26 +622,27 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       3,     0,     2,     1,    18,    19,     0,     0,     0,     0,
-       0,     0,     4,     5,     0,     6,    11,    12,    13,    14,
-       0,    17,     0,    21,    22,     0,     0,     0,    15,    16,
-      24,    23,    20,     0,     0,     0,     9,     7,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,    25,    27,    28,
-      31,    32,    29,    30,     0,     8,    10,     0,    26
+       3,     0,     2,     1,    19,    20,     0,     0,     0,     0,
+       0,     0,     0,     4,     5,     0,     6,    11,    12,    13,
+      14,    17,    18,    15,     0,    22,    23,     0,     0,     0,
+      28,    16,    25,    24,    21,     0,     0,     0,     9,     7,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,    26,
+      29,    30,    33,    34,    31,    32,     0,     8,    10,     0,
+      27
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -14,   -14,   -14,   -14,   -14,     2,   -14,   -13,    -2,   -14,
-     -14,   -14,   -14,   -14,   -14,   -14,   -14
+      -9,    -9,    -9,    -9,    -9,    13,    -9,    -2,     7,    -9,
+      -9,    -9,    -9,    -9,    -9,    -9,    -9,    -9
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     1,     2,    12,    13,    37,    46,    14,    15,    16,
-      17,    18,    19,    32,    20,    21,    35
+       0,     1,     2,    13,    14,    39,    48,    15,    16,    17,
+      18,    19,    20,    34,    21,    22,    23,    37
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -646,52 +650,55 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       4,     5,     6,     7,     8,     9,    10,    39,    40,    41,
-      42,     4,     5,     6,     7,     8,     3,    43,    44,    55,
-       4,     5,     6,     7,     8,     9,    10,    11,    30,    31,
-      25,    22,    23,    24,    26,    27,    28,    33,    29,    34,
-      47,    57,    36,    48,    56,    49,    50,    51,    52,    38,
-      45,    53,    54,     0,     0,     0,    58
+       4,     5,     6,     7,     8,     9,    10,    32,    33,    12,
+       3,    41,    42,    43,    44,    24,    25,    26,    29,    27,
+      57,    45,    46,     4,     5,     6,     7,     8,     9,    10,
+      11,    28,    12,     4,     5,     6,     7,     8,    30,    31,
+      35,    38,    12,    36,    40,    50,    51,    47,    52,    56,
+      53,    54,    55,    49,    59,    58,     0,     0,     0,     0,
+      60
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     4,     5,     6,     7,     8,     9,    17,    18,    19,
-      20,     3,     4,     5,     6,     7,     0,    27,    28,    22,
-       3,     4,     5,     6,     7,     8,     9,    10,    14,    15,
-      24,    13,    13,    13,    24,    12,    23,    15,    23,    11,
-      38,    54,    21,    16,    46,    16,    16,    16,    16,    25,
-      25,    16,    26,    -1,    -1,    -1,    23
+       3,     4,     5,     6,     7,     8,     9,    15,    16,    12,
+       0,    18,    19,    20,    21,    14,    14,    14,    13,    25,
+      23,    28,    29,     3,     4,     5,     6,     7,     8,     9,
+      10,    25,    12,     3,     4,     5,     6,     7,    13,    24,
+      16,    22,    12,    11,    26,    17,    17,    26,    17,    27,
+      17,    17,    17,    40,    56,    48,    -1,    -1,    -1,    -1,
+      24
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,    30,    31,     0,     3,     4,     5,     6,     7,     8,
-       9,    10,    32,    33,    36,    37,    38,    39,    40,    41,
-      43,    44,    13,    13,    13,    24,    24,    12,    23,    23,
-      14,    15,    42,    15,    11,    45,    21,    34,    25,    17,
-      18,    19,    20,    27,    28,    25,    35,    34,    16,    16,
-      16,    16,    16,    16,    26,    22,    37,    36,    23
+       0,    31,    32,     0,     3,     4,     5,     6,     7,     8,
+       9,    10,    12,    33,    34,    37,    38,    39,    40,    41,
+      42,    44,    45,    46,    14,    14,    14,    25,    25,    13,
+      13,    24,    15,    16,    43,    16,    11,    47,    22,    35,
+      26,    18,    19,    20,    21,    28,    29,    26,    36,    35,
+      17,    17,    17,    17,    17,    17,    27,    23,    38,    37,
+      24
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    29,    30,    31,    31,    32,    32,    33,    34,    35,
-      35,    36,    36,    36,    36,    37,    37,    37,    38,    39,
-      40,    41,    41,    42,    42,    43,    44,    45,    45,    45,
-      45,    45,    45
+       0,    30,    31,    32,    32,    33,    33,    34,    35,    36,
+      36,    37,    37,    37,    37,    37,    38,    38,    38,    39,
+      40,    41,    42,    42,    43,    43,    44,    45,    46,    47,
+      47,    47,    47,    47,    47
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     1,     0,     2,     1,     1,     3,     3,     0,
-       2,     1,     1,     1,     1,     2,     2,     1,     1,     1,
-       3,     2,     2,     1,     1,     5,     7,     3,     3,     3,
-       3,     3,     3
+       2,     1,     1,     1,     1,     1,     2,     1,     1,     1,
+       1,     3,     2,     2,     1,     1,     5,     7,     2,     3,
+       3,     3,     3,     3,     3
 };
 
 
@@ -1160,13 +1167,13 @@ yyreduce:
         printf("=== Programa Parseado ===\n%s\n", (yyvsp[0].str) && strlen((yyvsp[0].str)) ? (yyvsp[0].str) : "(vazio)");
         free((yyvsp[0].str));
     }
-#line 1164 "tvlang.tab.c"
+#line 1171 "tvlang.tab.c"
     break;
 
   case 3: /* items: %empty  */
 #line 56 "tvlang.y"
                 { (yyval.str) = strdup(""); }
-#line 1170 "tvlang.tab.c"
+#line 1177 "tvlang.tab.c"
     break;
 
   case 4: /* items: items item  */
@@ -1183,26 +1190,26 @@ yyreduce:
             (yyval.str) = tmp2;
         }
     }
-#line 1187 "tvlang.tab.c"
+#line 1194 "tvlang.tab.c"
     break;
 
   case 5: /* item: modo_def  */
 #line 73 "tvlang.y"
              { (yyval.str) = (yyvsp[0].str); }
-#line 1193 "tvlang.tab.c"
+#line 1200 "tvlang.tab.c"
     break;
 
   case 6: /* item: instr  */
 #line 74 "tvlang.y"
-          { (yyval.str) = (yyvsp[0].str); }
-#line 1199 "tvlang.tab.c"
+             { (yyval.str) = (yyvsp[0].str); }
+#line 1206 "tvlang.tab.c"
     break;
 
   case 7: /* modo_def: MODO NAME bloco  */
 #line 79 "tvlang.y"
     {
         char *tmp = concat("modo ", (yyvsp[-1].str));
-        char *t2 = concat(tmp, " ");
+        char *t2  = concat(tmp, " ");
         free(tmp);
         tmp = concat(t2, (yyvsp[0].str));
         free(t2);
@@ -1210,25 +1217,25 @@ yyreduce:
         free((yyvsp[-1].str));
         free((yyvsp[0].str));
     }
-#line 1214 "tvlang.tab.c"
+#line 1221 "tvlang.tab.c"
     break;
 
   case 8: /* bloco: '{' instrs '}'  */
 #line 93 "tvlang.y"
     {
-        char *tmp = concat("{\n", (yyvsp[-1].str));
+        char *tmp  = concat("{\n", (yyvsp[-1].str));
         char *tmp2 = concat(tmp, "}");
         free(tmp);
         free((yyvsp[-1].str));
         (yyval.str) = tmp2;
     }
-#line 1226 "tvlang.tab.c"
+#line 1233 "tvlang.tab.c"
     break;
 
   case 9: /* instrs: %empty  */
 #line 103 "tvlang.y"
                 { (yyval.str) = strdup(""); }
-#line 1232 "tvlang.tab.c"
+#line 1239 "tvlang.tab.c"
     break;
 
   case 10: /* instrs: instrs instr  */
@@ -1239,7 +1246,7 @@ yyreduce:
             free((yyvsp[0].str));
             free((yyvsp[-1].str));
         } else {
-            char *tmp = concat((yyvsp[-1].str), "\n");
+            char *tmp  = concat((yyvsp[-1].str), "\n");
             char *tmp2 = concat(tmp, (yyvsp[0].str));
             free(tmp);
             free((yyvsp[-1].str));
@@ -1247,45 +1254,35 @@ yyreduce:
             (yyval.str) = tmp2;
         }
     }
-#line 1251 "tvlang.tab.c"
+#line 1258 "tvlang.tab.c"
     break;
 
-  case 15: /* instr: action ';'  */
-#line 136 "tvlang.y"
-    {
-        char *tmp = concat((yyvsp[-1].str), ";");
-        (yyval.str) = tmp;
-        free((yyvsp[-1].str));
-    }
-#line 1261 "tvlang.tab.c"
-    break;
-
-  case 16: /* instr: sleepbloco ';'  */
+  case 16: /* instr: action ';'  */
 #line 142 "tvlang.y"
     {
         char *tmp = concat((yyvsp[-1].str), ";");
         (yyval.str) = tmp;
         free((yyvsp[-1].str));
     }
-#line 1271 "tvlang.tab.c"
+#line 1268 "tvlang.tab.c"
     break;
 
-  case 18: /* ligar_stmt: LIGAR  */
-#line 152 "tvlang.y"
+  case 19: /* ligar_stmt: LIGAR  */
+#line 154 "tvlang.y"
           { (yyval.str) = strdup("ligar"); }
-#line 1277 "tvlang.tab.c"
+#line 1274 "tvlang.tab.c"
     break;
 
-  case 19: /* desligar_stmt: DESLIGAR  */
-#line 156 "tvlang.y"
+  case 20: /* desligar_stmt: DESLIGAR  */
+#line 158 "tvlang.y"
              { (yyval.str) = strdup("desligar"); }
-#line 1283 "tvlang.tab.c"
+#line 1280 "tvlang.tab.c"
     break;
 
-  case 20: /* setar_stmt: SETAR IDENT valor  */
-#line 161 "tvlang.y"
+  case 21: /* setar_stmt: SETAR IDENT valor  */
+#line 163 "tvlang.y"
     {
-        char *tmp = concat("setar ", (yyvsp[-1].str));
+        char *tmp  = concat("setar ", (yyvsp[-1].str));
         char *tmp2 = concat(tmp, " ");
         free(tmp);
         tmp = concat(tmp2, (yyvsp[0].str));
@@ -1294,35 +1291,50 @@ yyreduce:
         free((yyvsp[-1].str));
         free((yyvsp[0].str));
     }
-#line 1298 "tvlang.tab.c"
+#line 1295 "tvlang.tab.c"
     break;
 
-  case 21: /* incdec: AUMENTAR IDENT  */
-#line 174 "tvlang.y"
-                   { char *tmp = concat("aumentar ", (yyvsp[0].str)); (yyval.str) = tmp; free((yyvsp[0].str)); }
-#line 1304 "tvlang.tab.c"
+  case 22: /* incdec: AUMENTAR IDENT  */
+#line 177 "tvlang.y"
+    {
+        char *tmp = concat("aumentar ", (yyvsp[0].str));
+        (yyval.str) = tmp;
+        free((yyvsp[0].str));
+    }
+#line 1305 "tvlang.tab.c"
     break;
 
-  case 22: /* incdec: DIMINUIR IDENT  */
-#line 175 "tvlang.y"
-                   { char *tmp = concat("diminuir ", (yyvsp[0].str)); (yyval.str) = tmp; free((yyvsp[0].str)); }
-#line 1310 "tvlang.tab.c"
+  case 23: /* incdec: DIMINUIR IDENT  */
+#line 183 "tvlang.y"
+    {
+        char *tmp = concat("diminuir ", (yyvsp[0].str));
+        (yyval.str) = tmp;
+        free((yyvsp[0].str));
+    }
+#line 1315 "tvlang.tab.c"
     break;
 
-  case 23: /* valor: NUMERO  */
-#line 179 "tvlang.y"
-           { char buf[64]; snprintf(buf, sizeof(buf), "%d", (yyvsp[0].num)); (yyval.str) = strdup(buf); }
-#line 1316 "tvlang.tab.c"
+  case 24: /* valor: NUMERO  */
+#line 192 "tvlang.y"
+    {
+        char buf[64];
+        snprintf(buf, sizeof(buf), "%d", (yyvsp[0].num));
+        (yyval.str) = strdup(buf);
+    }
+#line 1325 "tvlang.tab.c"
     break;
 
-  case 24: /* valor: FONTE  */
-#line 180 "tvlang.y"
-           { (yyval.str) = strdup((yyvsp[0].str)); free((yyvsp[0].str)); }
-#line 1322 "tvlang.tab.c"
+  case 25: /* valor: FONTE  */
+#line 198 "tvlang.y"
+    {
+        (yyval.str) = strdup((yyvsp[0].str));
+        free((yyvsp[0].str));
+    }
+#line 1334 "tvlang.tab.c"
     break;
 
-  case 25: /* sleepbloco: SLEEP_KW '(' NUMERO ')' bloco  */
-#line 186 "tvlang.y"
+  case 26: /* sleepbloco: SLEEP_KW '(' NUMERO ')' bloco  */
+#line 207 "tvlang.y"
     {
         char buf[64];
         snprintf(buf, sizeof(buf), "sleep(%d) ", (yyvsp[-2].num));
@@ -1330,11 +1342,11 @@ yyreduce:
         (yyval.str) = tmp;
         free((yyvsp[0].str));
     }
-#line 1334 "tvlang.tab.c"
+#line 1346 "tvlang.tab.c"
     break;
 
-  case 26: /* condicao: SE '(' expressao ')' ':' action ';'  */
-#line 200 "tvlang.y"
+  case 27: /* condicao: SE '(' expressao ')' ':' action ';'  */
+#line 221 "tvlang.y"
     {
         char *tmp1 = concat("se (", (yyvsp[-4].str));
         char *tmp2 = concat(tmp1, ") : ");
@@ -1347,71 +1359,81 @@ yyreduce:
         free((yyvsp[-4].str));
         free((yyvsp[-1].str));
     }
-#line 1351 "tvlang.tab.c"
+#line 1363 "tvlang.tab.c"
     break;
 
-  case 27: /* expressao: HORARIO EQ HORA  */
-#line 216 "tvlang.y"
+  case 28: /* chamadamodo: EXECUTAR NAME  */
+#line 238 "tvlang.y"
+    {
+        char *tmp = concat("executar ", (yyvsp[0].str));
+        (yyval.str) = tmp;
+        free((yyvsp[0].str));
+    }
+#line 1373 "tvlang.tab.c"
+    break;
+
+  case 29: /* expressao: HORARIO EQ HORA  */
+#line 247 "tvlang.y"
     {
         char buf[80];
         snprintf(buf, sizeof(buf), "horario == %dh", (yyvsp[0].num));
         (yyval.str) = strdup(buf);
     }
-#line 1361 "tvlang.tab.c"
+#line 1383 "tvlang.tab.c"
     break;
 
-  case 28: /* expressao: HORARIO NE HORA  */
-#line 222 "tvlang.y"
+  case 30: /* expressao: HORARIO NE HORA  */
+#line 253 "tvlang.y"
     {
         char buf[80];
         snprintf(buf, sizeof(buf), "horario != %dh", (yyvsp[0].num));
         (yyval.str) = strdup(buf);
     }
-#line 1371 "tvlang.tab.c"
+#line 1393 "tvlang.tab.c"
     break;
 
-  case 29: /* expressao: HORARIO '<' HORA  */
-#line 228 "tvlang.y"
+  case 31: /* expressao: HORARIO '<' HORA  */
+#line 259 "tvlang.y"
     {
         char buf[80];
         snprintf(buf, sizeof(buf), "horario < %dh", (yyvsp[0].num));
         (yyval.str) = strdup(buf);
     }
-#line 1381 "tvlang.tab.c"
+#line 1403 "tvlang.tab.c"
     break;
 
-  case 30: /* expressao: HORARIO '>' HORA  */
-#line 234 "tvlang.y"
+  case 32: /* expressao: HORARIO '>' HORA  */
+#line 265 "tvlang.y"
     {
         char buf[80];
         snprintf(buf, sizeof(buf), "horario > %dh", (yyvsp[0].num));
         (yyval.str) = strdup(buf);
     }
-#line 1391 "tvlang.tab.c"
+#line 1413 "tvlang.tab.c"
     break;
 
-  case 31: /* expressao: HORARIO LE HORA  */
-#line 240 "tvlang.y"
+  case 33: /* expressao: HORARIO LE HORA  */
+#line 271 "tvlang.y"
     {
         char buf[80];
         snprintf(buf, sizeof(buf), "horario <= %dh", (yyvsp[0].num));
         (yyval.str) = strdup(buf);
     }
-#line 1401 "tvlang.tab.c"
+#line 1423 "tvlang.tab.c"
     break;
 
-  case 32: /* expressao: HORARIO GE HORA  */
-#line 246 "tvlang.y"
+  case 34: /* expressao: HORARIO GE HORA  */
+#line 277 "tvlang.y"
     {
         char buf[80];
         snprintf(buf, sizeof(buf), "horario >= %dh", (yyvsp[0].num));
         (yyval.str) = strdup(buf);
     }
-#line 1411 "tvlang.tab.c"
+#line 1433 "tvlang.tab.c"
     break;
 
 
-#line 1415 "tvlang.tab.c"
+#line 1437 "tvlang.tab.c"
 
       default: break;
     }
@@ -1604,7 +1626,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 253 "tvlang.y"
+#line 284 "tvlang.y"
 
 
 void yyerror(const char *s) {

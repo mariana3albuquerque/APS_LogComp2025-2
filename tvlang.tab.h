@@ -63,15 +63,16 @@ extern int yydebug;
     SE = 264,                      /* SE  */
     MODO = 265,                    /* MODO  */
     HORARIO = 266,                 /* HORARIO  */
-    NAME = 267,                    /* NAME  */
-    IDENT = 268,                   /* IDENT  */
-    FONTE = 269,                   /* FONTE  */
-    NUMERO = 270,                  /* NUMERO  */
-    HORA = 271,                    /* HORA  */
-    EQ = 272,                      /* EQ  */
-    NE = 273,                      /* NE  */
-    LE = 274,                      /* LE  */
-    GE = 275                       /* GE  */
+    EXECUTAR = 267,                /* EXECUTAR  */
+    NAME = 268,                    /* NAME  */
+    IDENT = 269,                   /* IDENT  */
+    FONTE = 270,                   /* FONTE  */
+    NUMERO = 271,                  /* NUMERO  */
+    HORA = 272,                    /* HORA  */
+    EQ = 273,                      /* EQ  */
+    NE = 274,                      /* NE  */
+    LE = 275,                      /* LE  */
+    GE = 276                       /* GE  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -85,7 +86,7 @@ union YYSTYPE
     char *str;
     int num;
 
-#line 89 "tvlang.tab.h"
+#line 90 "tvlang.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

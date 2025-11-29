@@ -1,0 +1,21 @@
+; programa principal
+SET ENERGIA 1
+SET CANAL 12
+SET VOLUME 10
+
+CALL noite
+CALL infantil
+
+HALT
+
+noite:
+SET ENERGIA 1
+SET CANAL 45
+SET VOLUME 8
+RET
+
+infantil:
+SET ENERGIA 1
+SET CANAL 34
+SET VOLUME 5
+RET

@@ -45,8 +45,11 @@ Instrucao      = Ligar ";"
                | Setar ";"
                | Incremento ";"
                | Decremento ";"
-               | SleepBloco
-               | Condicao ;
+               | SleepBloco ";"
+               | Condicao
+               | ChamadaModo ";" ;
+
+ChamadaModo    = "executar" Nome ;
 
 Ligar          = "ligar" ;
 Desligar       = "desligar" ;
@@ -77,6 +80,8 @@ Hora           = Numero "h" ;
 
 Nome           = Letter { Letter | Digit | "_" } ;
 Letter         = "A" | "B" | ... | "Z" | "a" | ... | "z" ;
+Digit          = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
 ```
 
 ---

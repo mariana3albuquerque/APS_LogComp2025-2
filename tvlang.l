@@ -25,6 +25,7 @@ IDCHAR      [A-Za-z_][A-Za-z0-9_]*
 "se"                   { return SE; }
 "modo"                 { return MODO; }
 "horario"              { return HORARIO; }
+"executar"             { return EXECUTAR; }
 
 "("                    { return '('; }
 ")"                    { return ')'; }
@@ -49,6 +50,7 @@ IDCHAR      [A-Za-z_][A-Za-z0-9_]*
 "volume"               { yylval.str = strdup("volume"); return IDENT; }
 "entrada"              { yylval.str = strdup("entrada"); return IDENT; }
 "energia"              { yylval.str = strdup("energia"); return IDENT; }
+"sleep"                { yylval.str = strdup("sleep"); return IDENT; }
 
 {NUM}"h"               { yylval.num = atoi(yytext); return HORA; }
 {NUM}                  { yylval.num = atoi(yytext); return NUMERO; }

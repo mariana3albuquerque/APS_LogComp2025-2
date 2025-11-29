@@ -1,0 +1,35 @@
+modo noite {
+ligar;
+setar canal 45;
+setar volume 8;
+sleep(3) {
+diminuir volume;
+}
+se (horario == 23h): desligar;
+}
+
+modo maratona {
+ligar;
+setar canal 10;
+setar volume 15;
+sleep(5) {
+aumentar canal;
+}
+}
+
+modo infantil {
+ligar;
+setar canal 34;
+setar volume 8;
+}
+
+ligar;
+setar entrada tv;
+setar canal 12;
+setar volume 12;
+
+se (horario == 23h): executar noite;
+se (horario != 23h): executar maratona;
+
+executar infantil;
+

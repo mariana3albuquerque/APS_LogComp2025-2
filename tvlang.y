@@ -32,7 +32,7 @@ char *concat(const char *a, const char *b) {
     int num;
 }
 
-%token LIGAR DESLIGAR SETAR AUMENTAR DIMINUIR SLEEP_KW SE MODO HORARIO
+%token LIGAR DESLIGAR SETAR AUMENTAR DIMINUIR SLEEP_KW SE MODO HORARIO EXECUTAR
 %token <str> NAME
 %token <str> IDENT
 %token <str> FONTE
@@ -40,7 +40,7 @@ char *concat(const char *a, const char *b) {
 %token EQ NE LE GE
 
 /* tipos dos não-terminais que retornam strings */
-%type <str> program items item bloco instrs instr modo_def setar_stmt incdec ligar_stmt desligar_stmt sleepbloco condicao expressao valor action
+%type <str> program items item bloco instrs instr modo_def setar_stmt incdec ligar_stmt desligar_stmt sleepbloco condicao expressao valor action chamadamodo
 
 %%
 
@@ -71,14 +71,14 @@ items:
 
 item:
     modo_def { $$ = $1; }
-  | instr { $$ = $1; }
+  | instr    { $$ = $1; }
 ;
 
 modo_def:
     MODO NAME bloco
     {
         char *tmp = concat("modo ", $2);
-        char *t2 = concat(tmp, " ");
+        char *t2  = concat(tmp, " ");
         free(tmp);
         tmp = concat(t2, $3);
         free(t2);
@@ -91,7 +91,7 @@ modo_def:
 bloco:
     '{' instrs '}'
     {
-        char *tmp = concat("{\n", $2);
+        char *tmp  = concat("{\n", $2);
         char *tmp2 = concat(tmp, "}");
         free(tmp);
         free($2);
@@ -108,7 +108,7 @@ instrs:
             free($2);
             free($1);
         } else {
-            char *tmp = concat($1, "\n");
+            char *tmp  = concat($1, "\n");
             char *tmp2 = concat(tmp, $2);
             free(tmp);
             free($1);
@@ -124,12 +124,18 @@ action:
     | desligar_stmt
     | setar_stmt
     | incdec
+    | chamadamodo
 ;
 
 /* instr exige exatamente um ';' por instrução:
    - action ';'  (ações simples)
    - sleepbloco ';' (sleep bloco seguido de ;)
    - condicao  (condicao já inclui o ';' internamente)
+*/
+/* instr:
+   - action ';'        (ações simples)
+   - sleepbloco        (já termina no '}'; sem ';')
+   - condicao          (já inclui o ';' internamente)
 */
 instr:
     action ';'
@@ -138,14 +144,10 @@ instr:
         $$ = tmp;
         free($1);
     }
-  | sleepbloco ';'
-    {
-        char *tmp = concat($1, ";");
-        $$ = tmp;
-        free($1);
-    }
+  | sleepbloco
   | condicao
 ;
+
 
 /* statements produzem strings SEM o ';' */
 ligar_stmt:
@@ -159,7 +161,7 @@ desligar_stmt:
 setar_stmt:
     SETAR IDENT valor
     {
-        char *tmp = concat("setar ", $2);
+        char *tmp  = concat("setar ", $2);
         char *tmp2 = concat(tmp, " ");
         free(tmp);
         tmp = concat(tmp2, $3);
@@ -171,13 +173,32 @@ setar_stmt:
 ;
 
 incdec:
-    AUMENTAR IDENT { char *tmp = concat("aumentar ", $2); $$ = tmp; free($2); }
-  | DIMINUIR IDENT { char *tmp = concat("diminuir ", $2); $$ = tmp; free($2); }
+    AUMENTAR IDENT
+    {
+        char *tmp = concat("aumentar ", $2);
+        $$ = tmp;
+        free($2);
+    }
+  | DIMINUIR IDENT
+    {
+        char *tmp = concat("diminuir ", $2);
+        $$ = tmp;
+        free($2);
+    }
 ;
 
 valor:
-    NUMERO { char buf[64]; snprintf(buf, sizeof(buf), "%d", $1); $$ = strdup(buf); }
-  | FONTE  { $$ = strdup($1); free($1); }
+    NUMERO
+    {
+        char buf[64];
+        snprintf(buf, sizeof(buf), "%d", $1);
+        $$ = strdup(buf);
+    }
+  | FONTE
+    {
+        $$ = strdup($1);
+        free($1);
+    }
 ;
 
 /* sleepbloco produz string sem ';' (instr pede sleepbloco ';') */
@@ -208,6 +229,16 @@ condicao:
         $$ = res;
         free($3);
         free($6);
+    }
+;
+
+/* chamada de modo: executar Nome */
+chamadamodo:
+    EXECUTAR NAME
+    {
+        char *tmp = concat("executar ", $2);
+        $$ = tmp;
+        free($2);
     }
 ;
 
